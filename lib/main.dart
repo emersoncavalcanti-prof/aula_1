@@ -22,8 +22,13 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          leading: Icon(Icons.app_registration,color: Colors.white,),
+          title: Text('Formulário',style: TextStyle(color: Colors.white),),
+          backgroundColor: Colors.blue,
+        ),
         body: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.fromLTRB(20, 50, 20, 30),
           child: Form(
             key: _formKey,
             child: Center(
@@ -49,14 +54,24 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                   Text(_nomeController.text),
-                  ElevatedButton(onPressed: (){
+                  Container(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(vertical: 15),
+                      ),
+                      onPressed: (){
                       if(_formKey.currentState!.validate()){
                         setState(() {
                           
                         });
                       }
-                  }, 
-                  child: Text('Cadastrar'))
+                  },
+                      child: Text('Enviar'),
+                    ),
+                  )
                 ],
               ),
             ),
