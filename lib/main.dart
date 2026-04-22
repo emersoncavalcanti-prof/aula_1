@@ -17,6 +17,12 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _nomeController = 
   TextEditingController();
 
+  void _calcular(){
+      if(_formKey.currentState!.validate()){
+        setState(() {});
+      }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -63,11 +69,7 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.symmetric(vertical: 15),
                       ),
                       onPressed: (){
-                      if(_formKey.currentState!.validate()){
-                        setState(() {
-                          
-                        });
-                      }
+                        _calcular();
                   },
                       child: Text('Enviar'),
                     ),
